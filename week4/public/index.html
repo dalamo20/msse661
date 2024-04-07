@@ -7,7 +7,7 @@
 </head>
 <body>
 <header>
-    <div class="logo">FLUID</div>
+    <div class="logo">Da Bar</div>
     <nav>
         <a href="https://www.w3schools.com/howto/howto_css_login_form.asp">W3 Schools</a>
         <a href="https://twitter.com/pusheensDad">Twitter</a>
@@ -16,7 +16,7 @@
 
 <div class="container">
     <h2>Modal Login Form</h2>
-    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign In</button>
 
     <div id="id01" class="modal">
         <form class="modal-content animate" method="post">
@@ -26,12 +26,12 @@
         
             <div class="container">
               <label for="uname"><b>Username</b></label>
-              <input type="text" placeholder="Enter Username" name="uname" required>
+              <input id="uname" type="text" placeholder="Enter Username" name="uname" required>
         
               <label for="psw"><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="psw" required>
+              <input id="psw" type="password" placeholder="Enter Password" name="psw" required>
                 
-              <button type="submit">Login</button>
+              <button type="submit" onclick="doLogin(event)">Login</button>
               <label>
                 <input type="checkbox" checked="checked" name="remember"> Remember me
               </label>
@@ -39,19 +39,18 @@
         
             <div class="container" style="background-color:#f1f1f1">
               <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+              <span class="psw"><a href="./register.html">Create an Account</a></span>
               <span class="psw"><a href="https://www.kualo.co.uk/404">Forgot password?</a></span>
             </div>
           </form>
     </div>
-    <button><a href="./login.html">LOGIN PAGE</a></button>
 </div>
 </div>
 <footer>
-    &copy; 2024 FLUID. All rights reserved.
+    &copy; 2024 Da Bar Enterprise. All rights reserved.
 </footer>
-
-<script src="./src/app.js">
-</script>
-
+<script src="./src/service-helpers.js"></script>
+<script src="./src/auth.service.js"></script>
+<script src="./src/app.js"></script>
 </body>
 </html>
