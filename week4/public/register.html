@@ -11,7 +11,7 @@
         <div class="alert-box">
             <p class="alert"></p>
         </div>
-        <form class="form" novalidate>
+        <form class="form">
             <h1 class="heading">Register</h1>
             <input id="uname" type="text" autocomplete="off" class="uname" placeholder="Enter Username" required/>
             <input id="email" type="email" autocomplete="off" class="email" placeholder="Enter Email" required/>
@@ -19,5 +19,8 @@
             <button class="submit-btn" onclick="doRegister(event)"><a href="./index.html">Register</a></button>
             <a href="./index.html" class="link">Cancel Registration</a>
         </form>
+        <script src="./src/service-helpers.js"></script>
+        <script src="./src/auth.service.js"></script>
+        <script src="./src/app.js"></script>
     </body>
 </html>
