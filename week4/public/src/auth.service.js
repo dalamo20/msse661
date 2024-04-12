@@ -1,6 +1,7 @@
 const BASE_API_URL = "http://localhost:3000/api";
 const AUTH_API = `${BASE_API_URL}/auth`;
 const USER_API = `${BASE_API_URL}/user`;
+//const USER_INFO_API = `${BASE_API_URL}/user/:userId/info`;
 
 /* ex: of getting user by id
     const USER_BY_ID = function(userId){
