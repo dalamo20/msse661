@@ -1,16 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../public/css/reset.css">
-        <link rel="stylesheet" href="../public/css/home.css">
-        <title>HOME PAGE</title>
-    </head>
-    <body>
-        <div class="container">
-            <button class="logout" onclick="doLogout(event)"><a href="./index.html">Logout</a></button>
-            <h1 class="greeting">WELCOME TO DA BAR</h1>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Week 2</title>
+</head>
+<body>
+    <header>
+        <div class="logo">Da Bar</div>
+        <nav>
+            <a href="https://www.w3schools.com/howto/howto_css_login_form.asp">W3 Schools</a>
+            <a href="https://twitter.com/pusheensDad">Twitter</a>
+            <a id="login" href="./login.html">Login</a>
+            <a id="logout" href="" onclick="doLogout(event)">Logout</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="content">
+            <div id="drinks">
+              <div>Bar is closed bub...</div>
+            </div>
         </div>
-    </body>
+
+    </div>
+    <footer>
+        &copy; 2024 Da Bar Enterprise. All rights reserved.
+    </footer>
+    <script src="./src/api.config.js"></script>
+    <script src="./src/simple-storage.js"></script>
+    <script src="./src/service-helpers.js"></script>
+    <script src="./src/auth.service.js"></script>
+    <script src="./src/tasks.service.js"></script>
+    <script src="./src/route-guard.js"></script>
+    <script src="./src/build-tasks-list.js"></script>
+    <script src="./src/app.js"></script>
+</body>
 </html>
