@@ -46,7 +46,7 @@
 
       const itemSpan = document.createElement("span");
       itemSpan.className = "order-item";
-      itemSpan.innerText = order.item;
+      itemSpan.innerText = order.drink_id;
 
       const quantitySpan = document.createElement("span");
       quantitySpan.className = "order-quantity";
@@ -54,7 +54,7 @@
 
       const totalSpan = document.createElement("span");
       totalSpan.className = "total-price";
-      totalSpan.innerText = order.totalPrice;
+      totalSpan.innerText = order.total_price;
 
       // add list item
       block.appendChild(checkboxSpan);

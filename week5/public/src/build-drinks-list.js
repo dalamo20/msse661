@@ -19,7 +19,7 @@
   const drinks = await getDrinks();
   console.log(drinks);
 
-  if (tasks.length) {
+  if (drinks.length) {
     const div = document.getElementById("drinks");
     const loadingDiv = div.childNodes[1];
 
