@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/reset.css">
+        <link rel="stylesheet" href="./css/form.css">
+        <title>Register PAGE</title>
+    </head>
+    <body>
+        <div class="content">
+            <form class="form">
+                <h1 class="heading">Register</h1>
+                <input id="uname" type="text" autocomplete="off" class="uname" placeholder="Enter Username" required/>
+                <input id="email" type="email" autocomplete="off" class="email" placeholder="Enter Email" required/>
+                <input id="psw" type="password" autocomplete="off" class="password" placeholder="Enter Password" required/>
+                <button class="submit-btn" onclick="doRegister(event)">Register</button>
+                <a href="./login.html" class="link">Cancel Registration</a>
+            </form>
+        </div>
+        <script src="./src/simple-storage.js"></script>
+    <script src="./src/service-helpers.js"></script>
+    <script src="./src/auth.service.js"></script>
+    <script src="./src/app.js"></script>
+    </body>
+</html>
