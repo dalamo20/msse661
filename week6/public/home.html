@@ -8,12 +8,22 @@
 </head>
 <body>
     <header>
-        <div class="logo">Da Bar</div>
+        <a class="logo" href="index.html">Da Bar</a>
         <nav>
-            <a href="https://www.w3schools.com/howto/howto_css_login_form.asp">W3 Schools</a>
-            <a href="https://twitter.com/pusheensDad">Twitter</a>
-            <a id="login" href="./login.html">Login</a>
-            <a id="logout" href="" onclick="doLogout(event)">Logout</a>
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://getbootstrap.com/">Bootstrap</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://twitter.com/pusheensDad">Twitter</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./login.html">Logout</a>
+                </li>
+              </ul>
         </nav>
     </header>
     <div class="container">
@@ -35,11 +45,14 @@
     </footer>
     <script src="./src/api.config.js"></script>
     <script src="./src/simple-storage.js"></script>
+    <script src="./src/route-guard.js"></script>
     <script src="./src/service-helpers.js"></script>
     <script src="./src/auth.service.js"></script>
-    <script src="./src/tasks.service.js"></script>
-    <script src="./src/route-guard.js"></script>
-    <script src="./src/build-tasks-list.js"></script>
-    <script src="./src/app.js"></script>
+    <script src="./src/drinks.service.js"></script>
+    <script src="./src/orders.service.js"></script>
+    <script src="./src/build-drinks-list.js"></script>
+    <script src="./src/build-orders-list.js"></script>
+    <script src="./src/add-task.js"></script>
+    <script src="./src/auth.js"></script>
 </body>
 </html>

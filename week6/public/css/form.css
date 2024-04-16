@@ -18,6 +18,35 @@ body {
     align-items: center;
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.logo {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color:#fff;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.nav-item a {
+    color: #fff;
+}
+
 .form {
     width: 400px;
     height: auto;
