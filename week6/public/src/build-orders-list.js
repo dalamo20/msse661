@@ -1,73 +1,136 @@
 /**
- * html structure
+ * @class OrderList
  *
- * @example
- * <ul class="orders-list">
- *  <li class="order-item">
- *    <div class="order-item-block">
- *      <span class="order-checkbox"><input type="checkbox"></span>
- *      <span class="order-name">Order number</span>
- *      <span class="order-status">quantity</span>
- *      <span class="order-date">total price</span>
- *    </div>
- *  </li>
- * </ul>
+ * Creates a list of orders and updates a list
  */
 
-// This is an IIFE (Immediately Invoked Function Expression).
-// What it does is in the name.
-(async () => {
-  const orders = await getOrders();
-  console.log(orders);
+class OrderList {
+  orders = [];
 
-  if (orders.length) {
+  constructor() {}
+
+  /**
+   * Build task list parent.
+   * Uses bootstrap classes with some custom overrides.
+   */
+  createOrderListParent = () => {
+    const ul = document.createElement("ul");
+    ul.id = "orders-list";
+    ul.className = "list-group list-group-flush checked-list-box";
+    return ul;
+  };
+
+  _deleteEventHandler = (orderId) => async () => {
+    if (orderId) {
+      const res = await deleteOrder(orderId);
+
+      if (res !== null) {
+        this.orders = this.orders.filter((order) => order.id !== orderId);
+        const order = document.getElementById(`order-${orderId}`);
+        order.remove();
+
+        if (!this.orders.length) {
+          const div = document.getElementById("orders");
+          const loadingDiv = div.childNodes[1];
+          const errDiv = this.generateErrorMsg("Create some new orders!");
+          div.replaceChild(errDiv, loadingDiv);
+        }
+      }
+    }
+  };
+
+  /**
+   * Builds the list item.
+   * Uses bootstrap classes with some custom overrides.
+   *
+   * {@link https://getbootstrap.com/docs/4.4/components/list-group/}
+   * @example
+   * <li class="list-group-item">
+   *   <button class="btn btn-secondary" onclick="deleteOrder(e, index)">X</button>
+   *   <span>Order item</span>
+   *   <span>quantity</span>
+   *   <span>total price</span>
+   *   <span>date create</span>
+   * </li>
+   */
+  buildOrderListRowItem = (task) => {
+    const listGroupItem = document.createElement("li");
+    listGroupItem.id = `order-${order.id}`; // order-1
+    listGroupItem.className = "list-group-item";
+
+    const deleteBtn = document.createElement("button");
+    const deleteBtnTxt = document.createTextNode("X");
+    deleteBtn.className = "btn btn-secondary";
+    deleteBtn.addEventListener("click", this._deleteEventHandler(order.id));
+    deleteBtn.appendChild(deleteBtnTxt);
+
+    const orderItemSpan = document.createElement("span");
+    const orderItem = document.createTextNode(order.drink_id);
+    orderItemSpan.appendChild(orderItem);
+
+    const orderQuantitySpan = document.createElement("span");
+    const orderQuantity = document.createTextNode(order.quantity);
+    orderQuantitySpan.append(orderQuantity);
+
+    const orderTotalSpan = document.createElement("span");
+    const orderTotal = document.createTextNode(order.total_price);
+    orderTotalSpan.append(orderTotal);
+
+    const orderDateSpan = document.createElement("span");
+    const orderDate = document.createTextNode(order.created_at);
+    orderDateSpan.append(orderDate);
+
+    // add list item's details
+    listGroupItem.append(deleteBtn);
+    listGroupItem.append(orderItemSpan);
+    listGroupItem.append(orderQuantitySpan);
+    listGroupItem.append(orderTotalSpan);
+    listGroupItem.append(orderDateSpan);
+
+    return listGroupItem;
+  };
+
+  /**
+   * Assembles the list items then mounts them to a parent node.
+   * Uses bootstrap classes with some custom overrides.
+   */
+  buildOrdersList = (mount, orders) =>
+    orders.map((order) => {
+      const listGroupRowItem = this.buildOrderListRowItem(order);
+
+      // add entire list item
+      mount.append(listGroupRowItem);
+    });
+
+  generateErrorMsg = (msg) => {
+    const div = document.createElement("div");
+    const text = document.createTextNode(msg);
+    div.id = "user-message";
+    div.className = "center";
+    div.appendChild(text);
+    return div;
+  };
+
+  generateOrders = async () => {
+    const res = await getOrders();
     const div = document.getElementById("orders");
     const loadingDiv = div.childNodes[1];
 
-    const ul = document.createElement("ul");
+    if (res.length) {
+      this.orders = res;
+      const ordersDiv = this.createOrderListParent();
+      this.buildOrdersList(ordersDiv, res);
+      div.replaceChild(ordersDiv, loadingDiv);
+    } else {
+      const errDiv = this.generateErrorMsg(res.msg);
+      div.replaceChild(errDiv, loadingDiv);
+    }
+  };
+}
 
-    // replace 'loading...' with list
-    div.replaceChild(ul, loadingDiv); // <- order is important here!
+const inst = new OrderList();
 
-    // create the list
-    orders.map((order) => {
-      // building blocks
-      const li = document.createElement("li");
-      li.className = "order-item";
-      const block = document.createElement("div");
-      block.className = "order-item-block";
-
-      //   content
-      const checkboxSpan = document.createElement("span");
-      const checkbox = document.createElement("input");
-      checkbox.setAttribute("type", "checkbox");
-      checkboxSpan.className = "order-checkbox";
-      checkboxSpan.appendChild(checkbox);
-
-      const itemSpan = document.createElement("span");
-      itemSpan.className = "order-item";
-      itemSpan.innerText = order.drink_id;
-
-      const quantitySpan = document.createElement("span");
-      quantitySpan.className = "order-quantity";
-      quantitySpan.innerText = order.quantity;
-
-      const totalSpan = document.createElement("span");
-      totalSpan.className = "total-price";
-      totalSpan.innerText = order.total_price;
-
-      const timeSpan = document.createElement("span");
-      totalSpan.className = "time";
-      totalSpan.innerText = order.created_at;
-
-      // add list item
-      block.appendChild(checkboxSpan);
-      block.appendChild(itemSpan);
-      block.appendChild(quantitySpan);
-      block.appendChild(totalSpan);
-
-      li.appendChild(block);
-      ul.appendChild(li);
-    });
-  }
+// This is an IIFE (Immediately Invoked Function Expression).
+(async () => {
+  inst.generateTasks();
 })();
