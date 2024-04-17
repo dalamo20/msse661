@@ -10,7 +10,7 @@ class OrderList {
   constructor() {}
 
   /**
-   * Build task list parent.
+   * Build order list parent.
    * Uses bootstrap classes with some custom overrides.
    */
   createOrderListParent = () => {
@@ -53,7 +53,7 @@ class OrderList {
    *   <span>date create</span>
    * </li>
    */
-  buildOrderListRowItem = (task) => {
+  buildOrderListRowItem = (order) => {
     const listGroupItem = document.createElement("li");
     listGroupItem.id = `order-${order.id}`; // order-1
     listGroupItem.className = "list-group-item";
@@ -132,5 +132,5 @@ const inst = new OrderList();
 
 // This is an IIFE (Immediately Invoked Function Expression).
 (async () => {
-  inst.generateTasks();
+  inst.generateOrders();
 })();

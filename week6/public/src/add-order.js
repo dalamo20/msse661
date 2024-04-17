@@ -1,5 +1,5 @@
 /**
- * AJAX add new tasks to task list on save.
+ * AJAX add new orders to order list on save.
  */
 const doAddOrder = async (e) => {
   e.preventDefault();
@@ -12,11 +12,11 @@ const doAddOrder = async (e) => {
   // what happens to the total that needs to be calculated by the server?
 
   if (!order_item) {
-    alert("Please enter an order item.");
+    alert("Please enter an order item number.");
     return;
   }
 
-  const res = await addTask({ order_item, order_quantity });
+  const res = await addOrder({ order_item, order_quantity });
 
   if (res !== null) {
     inst.generateOrders();

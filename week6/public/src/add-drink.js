@@ -1,5 +1,5 @@
 /**
- * AJAX add new drinks to task list on save.
+ * AJAX add new drinks to drink list on save.
  */
 const doAddDrink = async (e) => {
   e.preventDefault();

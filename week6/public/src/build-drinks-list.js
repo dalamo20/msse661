@@ -99,14 +99,14 @@ class DrinkList {
     return div;
   };
 
-  generateTasks = async () => {
+  generateDrinks = async () => {
     const res = await getDrinks();
     const div = document.getElementById("drinks");
     const loadingDiv = div.childNodes[1];
 
     if (res.length) {
       this.drinks = res;
-      const drinksDiv = this.createTaskListParent();
+      const drinksDiv = this.createDrinkListParent();
       this.buildDrinksList(drinksDiv, res);
       div.replaceChild(drinksDiv, loadingDiv);
     } else {
