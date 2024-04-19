@@ -1,23 +1,20 @@
-/**
- * AJAX add new drinks to drink list on save.
- */
-const doAddDrink = async (e) => {
-  e.preventDefault();
+const doAddDrink = async (event) => {
+  event.preventDefault();
 
-  const drinkInput = document.getElementById("formInputDrinkName");
-  const drink_name = drinkInput.value;
-  const priceInput = document.getElementById("formPrice");
-  const drink_price = priceInput.value;
+  const drinkName = document.getElementById("formInputDrinkName").value;
+  const drinkPrice = document.getElementById("formPrice").value;
 
-  if (!drink_name) {
-    alert("Please enter a drink name.");
-    return;
-  }
+  const formData = {
+    name: drinkName,
+    price: drinkPrice,
+  };
 
-  const res = await addDrink({ drink_name, drink_price });
+  const res = await addDrink(formData);
 
   if (res !== null) {
+    // reloads drinks
     inst.generateDrinks();
+  } else {
+    console.error("Error adding drink.");
   }
-  drinkInput.value = "";
 };

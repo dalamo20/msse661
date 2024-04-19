@@ -18,9 +18,9 @@ const doLogin = async (e) => {
 
 const doRegister = async (e) => {
   e.preventDefault();
-  const username = document.getElementById("formUserName").value;
-  const email = document.getElementById("formEmail").value;
-  const password = document.getElementById("formPassword").value;
+  const username = document.getElementById("formUserNameReg").value;
+  const email = document.getElementById("formEmailReg").value;
+  const password = document.getElementById("formPasswordReg").value;
 
   const res = await register({
     username,
