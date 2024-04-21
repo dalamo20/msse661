@@ -128,7 +128,7 @@ class OrderList {
   };
 }
 
-const inst = new OrderList();
+const instO = new OrderList();
 
 // This is an IIFE (Immediately Invoked Function Expression).
 (async () => {

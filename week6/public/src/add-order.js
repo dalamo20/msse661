@@ -1,15 +1,13 @@
-const doAddOrder = async (e) => {
-  e.preventDefault();
+const doAddOrder = async (event) => {
+  event.preventDefault();
 
-  const orderItem = document.getElementById("formOrderItem");
-  const order_item = orderItem.value;
-  const orderQuantity = document.getElementById("formQuantity");
-  const order_quantity = orderQuantity.value;
+  const order_item = document.getElementById("formOrderItem").value;
+  const order_quantity = document.getElementById("formQuantity").value;
 
-  if (!order_item || !order_quantity) {
-    alert("Please enter both item number and quantity.");
-    return;
-  }
+  // if (!order_item || !order_quantity) {
+  //   alert("Please enter both item number and quantity.");
+  //   return;
+  // }
 
   const formData = {
     drink_id: order_item,
@@ -19,7 +17,7 @@ const doAddOrder = async (e) => {
   const res = await addOrder(formData);
 
   if (res !== null) {
-    inst.generateOrders();
+    instO.generateOrders();
   } else {
     console.log("Error adding order.");
   }

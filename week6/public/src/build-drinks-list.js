@@ -62,6 +62,10 @@ class DrinkList {
     deleteBtn.addEventListener("click", this._deleteEventHandler(drink.id));
     deleteBtn.appendChild(deleteBtnTxt);
 
+    const drinkIdSpan = document.createElement("span");
+    const drinkId = document.createTextNode(drink.id);
+    drinkIdSpan.appendChild(drinkId);
+
     const drinkNameSpan = document.createElement("span");
     const drinkName = document.createTextNode(drink.name);
     drinkNameSpan.appendChild(drinkName);
@@ -72,6 +76,7 @@ class DrinkList {
 
     // add list item's details
     listGroupItem.append(deleteBtn);
+    listGroupItem.append(drinkIdSpan);
     listGroupItem.append(drinkNameSpan);
     listGroupItem.append(drinkPriceSpan);
 
