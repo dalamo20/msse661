@@ -80,7 +80,6 @@ class OrderList {
     const orderDate = document.createTextNode(order.created_at);
     orderDateSpan.append(orderDate);
 
-    // add list item's details
     listGroupItem.append(deleteBtn);
     listGroupItem.append(orderItemSpan);
     listGroupItem.append(orderQuantitySpan);
