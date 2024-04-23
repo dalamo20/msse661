@@ -1,0 +1,2 @@
+todoDrinks.init();
+todoOrders.init();
