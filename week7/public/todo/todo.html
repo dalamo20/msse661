@@ -45,6 +45,15 @@
         <div class="card text-bg-dark mb-3">
           <div class="card-header">DRINK MENU</div>
           <div class="card-body">
+            <table>
+            <thead>
+              <tr>
+                <th scope="col">Item #</th>
+                <th scope="col">Drink Name</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            </table>
               <div id="drinks">Loading...</div>
           </div>
         </div>
@@ -67,9 +76,17 @@
         <div class="card text-bg-dark mb-3">
           <div class="card-header">ORDERS</div>
           <div class="card-body">
-            <div>
+            <table>
+              <thead>
+                <tr>
+                  <th class="orderTh" scope="col">Item #</th>
+                  <th class="orderTh" scope="col">Quantity</th>
+                  <th class="orderTh" scope="col">Total Price</th>
+                  <th class="orderTh" scope="col">Date</th>
+                </tr>
+              </thead>
+              </table>
               <div id="orders">Loading...</div>
-            </div>
           </div>
         </div>
       </div>
@@ -85,10 +102,9 @@
     <script src="../lib/auth.guard.js"></script> 
     <script src="./menu-api.service.js"></script>
     <script src="./todo-drinks.service.js"></script>
-    <!-- <script src="./orders-api.service.js"></script> -->
     <script src="./todo-orders.service.js"></script>
     <script src="./todo-drink.js"></script>
     <script src="./todo-order.js"></script>
-    <script src="../app.js"></script>
+    <script src="../lib/app.js"></script>
 </body>
 </html>

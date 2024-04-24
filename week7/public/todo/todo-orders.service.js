@@ -113,21 +113,11 @@ class ToDoOrders {
    */
   addOrder = async (newOrder) => {
     try {
-      const {
-        drink_id,
-        quantity,
-        //  total_price,
-        //  created_at
-      } = newOrder;
-      await this.todoService.addOrder({
-        drink_id,
-        quantity,
-        // total_price,
-        // created_at,
-      });
-      this.orders.push(newOrder);
+      await this.todoService.addOrder(newOrder);
+
+      await this.render(); //refresh order list. had to refresh manually to see values
     } catch (err) {
-      console.log(err);
+      console.error("Error adding order:", err);
       alert("Unable to add order. Please try again later.");
     }
   };
@@ -159,7 +149,7 @@ class ToDoOrders {
     } else {
       this._renderList();
     }
-    order_item.value = ""; // clear form text input. Might have to just declare order_item = "";
+    document.getElementById("formOrderItem").value = ""; // clear form text input. Might have to just declare order_item = "";
   };
 
   /**
@@ -169,7 +159,8 @@ class ToDoOrders {
    */
   _createNewOrderEl = (order) => {
     const order_id = this.orders.length;
-    const newOrder = { ...order, order_id };
+    const created_date = new Date().toISOString();
+    const newOrder = { ...order, order_id, created_date };
     const newOrderEl = this._renderListRowItem(newOrder);
 
     return { newOrder, newOrderEl };

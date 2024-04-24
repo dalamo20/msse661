@@ -108,11 +108,12 @@ class ToDoDrinks {
    */
   addDrink = async (newDrink) => {
     try {
-      const { name, price } = newDrink;
-      await this.todoService.addDrink({ name, price });
-      this.drinks.push(newDrink);
+      // const { id, name, price } = newDrink;
+      // console.log(newDrink);
+      await this.todoService.addDrink(newDrink);
+      await this.render();
     } catch (err) {
-      console.log(err);
+      console.error("Error adding order:", err);
       alert("Unable to add drink. Please try again later.");
     }
   };
@@ -132,7 +133,7 @@ class ToDoDrinks {
       return;
     }
 
-    const drink = { name: drinkName, price: drinkPrice }; // Corrected assignment
+    const drink = { name: drinkName, price: drinkPrice };
     const { newDrink, newDrinkEl } = this._createNewDrinkEl(drink); // add drink to list
 
     this.addDrink(newDrink);

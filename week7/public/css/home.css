@@ -68,4 +68,12 @@
   .list-group-item > span {
     margin-left: 10px;
   }
+
+  table {
+    display: flex;
+    justify-content: center;
+  }
   
+  th {
+    padding-right: 10px;
+  }

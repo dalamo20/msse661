@@ -49,3 +49,10 @@ MSSE661 is a web software development course. This repository is for course work
 - The bottom inputs act as a customer ordering drinks. The customer will look at the above drink menu and choose the Menu Item Number (the id of the drink) and how many they would like to order. Total and timestamp are calculated by backend server.
 - In the Orders table, the data populates in this order (delete btn, order id, drink id, quantity, total price, creation date/time).
 - NOTE: Each logged in user may have different orders and drinks. Please use the drink id's to order. To see orders, you must order from the menu. If the menu is empty, please create some items by following the input placeholders.
+
+### Week 7
+
+<img width="1680" alt="finalShot" src="https://github.com/dalamo20/msse661/assets/35320043/74ecbfa0-2367-4d40-806c-45e9c430a3b2">
+
+- Made final modifications to improve performance when fetching data from the database.
+- Now once the appropriate user logs in, they can now see their menu options and orders they have created.
