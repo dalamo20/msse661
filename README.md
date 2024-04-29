@@ -1,6 +1,6 @@
 # msse661 Class Project
 
-MSSE661 is a web software development course. This repository is for course work and learning.
+MSSE661 is a web software development course. This repository is for course work and learning. This project uses the backend server repo located here: https://github.com/dalamo20/mysql-api
 
 ### Week 1
 
