@@ -18,7 +18,7 @@ describe("ToDoDrinks", () => {
     await todo.addDrink(newDrink);
 
     expect(addDrinkServiceSpy).toHaveBeenCalled();
-    expect(todo.drinks.length).toBe(1); //fails here, it's saying my dom elements
+    expect(todo.drinks.length).toBe(1); //fails here, it's saying my dom elements may not exist?
   });
 
   it("should delete a drink", async () => {
@@ -33,6 +33,5 @@ describe("ToDoDrinks", () => {
     expect(todo.drinks.length).toBe(0); //fails here
   });
   //There is no update for the drinks
-  //   it("should update an individual drink", () => {
-  //   });
+  xit("should update an individual drink", () => {});
 });
